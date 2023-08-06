@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Converter App</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Weight Converter App</h2>
+        <p>Enter a value in the Kilograms field to convert:</p>
+
+        <div class="form-group">
+            <label for="kilograms">Kilograms</label>
+            <input type="number" id="kilograms" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="pounds">Pounds:</label>
+            <input type="text" id="pounds" class="form-control" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="ounces">Ounces:</label>
+            <input type="text" id="ounces" class="form-control" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="grams">Grams:</label>
+            <input type="text" id="grams" class="form-control" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="stones">Stones:</label>
+            <input type="text" id="stones" class="form-control" readonly>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery links -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript to handle weight conversion
+        $(document).ready(function () {
+            $('#kilograms').on('input', function () {
+                var kilograms = parseFloat($(this).val());
+                if (!isNaN(kilograms)) {
+                    var pounds = kilograms * 2.20462;
+                    var ounces = kilograms * 35.27396;
+                    var grams = kilograms * 1000;
+                    var stones = kilograms * 0.157473;
+
+                    $('#pounds').val(pounds.toFixed(2));
+                    $('#ounces').val(ounces.toFixed(2));
+                    $('#grams').val(grams.toFixed(2));
+                    $('#stones').val(stones.toFixed(2));
+                } else {
+                    $('#pounds').val('');
+                    $('#ounces').val('');
+                    $('#grams').val('');
+                    $('#stones').val('');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
