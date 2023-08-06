@@ -1,4 +1,3 @@
-# Weight_converter_app
 # Weight Converter App - GitHub Repository
 
 ![Weight Converter App](./screenshot.png)
